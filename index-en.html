@@ -4,564 +4,89 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Bao giờ đến Tết | Support</title>
-  <meta name="description" content="Official support page for Bao giờ đến Tết app. Contact support, report issues, and read FAQs.">
+  <meta name="description" content="Help for Bao giờ đến Tết: settings, lunar and solar events, reminders, widgets, image sharing and privacy.">
+  <link rel="alternate" hreflang="vi" href="index.html">
+  <link rel="alternate" hreflang="en" href="index-en.html">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-  <style>
-    :root {
-      --bg: #f5f5f7;
-      --bg-accent: #e8f1ff;
-      --surface: #ffffff;
-      --surface-2: #f8f9fb;
-      --text: #1d1d1f;
-      --muted: #6e6e73;
-      --primary: #0071e3;
-      --primary-strong: #0062c3;
-      --ok: #0f7d3f;
-      --border: #d2d2d7;
-      --shadow: 0 16px 42px rgba(15, 23, 42, 0.08);
-      --radius-lg: 28px;
-      --radius-md: 16px;
-      --radius-sm: 12px;
-      --container: 1040px;
-    }
-
-    * {
-      box-sizing: border-box;
-    }
-
-    html {
-      scroll-behavior: smooth;
-    }
-
-    body {
-      margin: 0;
-      font-family: "Plus Jakarta Sans", sans-serif;
-      color: var(--text);
-      background:
-        radial-gradient(circle at 10% 0%, var(--bg-accent) 0, transparent 34%),
-        linear-gradient(170deg, #fbfbfd 0%, var(--bg) 60%, #f1f2f5 100%);
-      min-height: 100vh;
-    }
-
-    .wrap {
-      width: min(100% - 2rem, var(--container));
-      margin: 0 auto;
-      padding: 2.4rem 0 3rem;
-    }
-
-    .hero {
-      background: linear-gradient(125deg, #ffffff 0%, #fbfdff 56%, #f3f7ff 100%);
-      border: 1px solid var(--border);
-      border-radius: var(--radius-lg);
-      padding: 2.2rem 2rem;
-      box-shadow: var(--shadow);
-      position: relative;
-      overflow: hidden;
-    }
-
-    .hero::after {
-      content: "";
-      position: absolute;
-      inset: auto -10% -40% auto;
-      width: 320px;
-      height: 320px;
-      background: radial-gradient(circle, rgba(0, 113, 227, 0.18) 0, rgba(0, 113, 227, 0) 72%);
-      pointer-events: none;
-    }
-
-    .hero-top {
-      display: flex;
-      justify-content: flex-end;
-      margin-bottom: 1rem;
-      position: relative;
-      z-index: 1;
-    }
-
-    .lang-switch {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.35rem;
-      padding: 0.26rem;
-      border: 1px solid #d8dde8;
-      border-radius: 999px;
-      background: #f7f9ff;
-    }
-
-    .lang-btn {
-      border-radius: 999px;
-      padding: 0.42rem 0.74rem;
-      font-size: 0.82rem;
-      text-decoration: none;
-      color: #334155;
-      font-weight: 600;
-      line-height: 1;
-    }
-
-    .lang-btn.active {
-      background: #e5efff;
-      color: #0a4ea0;
-    }
-
-    .badge {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.5rem;
-      padding: 0.45rem 0.82rem;
-      border-radius: 999px;
-      background: #edf4ff;
-      border: 1px solid #d7e7ff;
-      color: #0a4ea0;
-      font-size: 0.85rem;
-      font-weight: 600;
-      letter-spacing: 0.02em;
-      margin-bottom: 1rem;
-    }
-
-    h1,
-    h2 {
-      margin: 0;
-      line-height: 1.2;
-      color: var(--text);
-      letter-spacing: -0.01em;
-    }
-
-    h1 {
-      font-size: clamp(1.85rem, 4.6vw, 3rem);
-      font-weight: 800;
-      max-width: 18ch;
-    }
-
-    h2 {
-      font-size: clamp(1.25rem, 2.5vw, 1.6rem);
-      font-weight: 700;
-      margin-bottom: 0.9rem;
-    }
-
-    .hero p {
-      margin: 1rem 0 0;
-      max-width: 62ch;
-      color: #424245;
-      line-height: 1.75;
-      font-size: 1.05rem;
-    }
-
-    .actions {
-      margin-top: 1.5rem;
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.8rem;
-    }
-
-    .button {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      border-radius: 999px;
-      padding: 0.78rem 1.2rem;
-      border: 1px solid var(--border);
-      text-decoration: none;
-      font-weight: 600;
-      font-size: 0.95rem;
-      transition: transform 120ms ease, box-shadow 120ms ease, background-color 120ms ease, color 120ms ease;
-    }
-
-    .button.primary {
-      background: var(--primary);
-      color: #fff;
-      border-color: transparent;
-      box-shadow: 0 10px 26px rgba(0, 113, 227, 0.28);
-    }
-
-    .button.primary:hover {
-      background: var(--primary-strong);
-      transform: translateY(-1px) scale(1.01);
-    }
-
-    .button.ghost {
-      background: #f5f5f7;
-      color: var(--text);
-    }
-
-    .button.ghost:hover {
-      background: #ececf0;
-    }
-
-    .grid {
-      margin-top: 1.2rem;
-      display: grid;
-      gap: 1rem;
-      grid-template-columns: 1fr;
-    }
-
-    .card {
-      background: var(--surface);
-      border: 1px solid var(--border);
-      border-radius: var(--radius-md);
-      padding: 1.35rem 1.25rem;
-      box-shadow: 0 10px 28px rgba(15, 23, 42, 0.05);
-    }
-
-    .row {
-      display: grid;
-      grid-template-columns: 120px 1fr;
-      gap: 0.8rem;
-      padding: 0.68rem 0;
-      border-bottom: 1px solid #ececf1;
-    }
-
-    .row:last-child {
-      border-bottom: 0;
-      padding-bottom: 0;
-    }
-
-    .row .label {
-      font-size: 0.9rem;
-      color: var(--muted);
-      font-weight: 600;
-    }
-
-    .row .value {
-      font-size: 0.96rem;
-      color: #111827;
-      font-weight: 600;
-      line-height: 1.5;
-    }
-
-    .value a {
-      color: var(--primary);
-      text-decoration-thickness: 2px;
-      text-underline-offset: 2px;
-    }
-
-    .status {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.45rem;
-      border-radius: 999px;
-      padding: 0.38rem 0.72rem;
-      background: #eef9f2;
-      color: var(--ok);
-      border: 1px solid #caeed8;
-      font-size: 0.85rem;
-      font-weight: 600;
-    }
-
-    .status::before {
-      content: "";
-      width: 8px;
-      height: 8px;
-      border-radius: 999px;
-      background: #17b45a;
-      box-shadow: 0 0 0 4px rgba(23, 180, 90, 0.14);
-    }
-
-    .list {
-      margin: 0;
-      padding-left: 1.15rem;
-      color: #3d3d41;
-      line-height: 1.7;
-    }
-
-    .list li + li {
-      margin-top: 0.3rem;
-    }
-
-    .section {
-      margin-top: 1.2rem;
-    }
-
-    .faq {
-      display: grid;
-      gap: 0.9rem;
-      grid-template-columns: 1fr;
-    }
-
-    details {
-      background: var(--surface-2);
-      border: 1px solid #e5e5ea;
-      border-radius: var(--radius-sm);
-      padding: 1rem;
-    }
-
-    summary {
-      cursor: pointer;
-      list-style: none;
-      font-weight: 600;
-      color: var(--text);
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 0.8rem;
-    }
-
-    summary::-webkit-details-marker {
-      display: none;
-    }
-
-    summary::after {
-      content: "+";
-      font-size: 1.1rem;
-      color: #8b8b90;
-    }
-
-    details[open] summary::after {
-      content: "−";
-    }
-
-    details p {
-      margin: 0.75rem 0 0;
-      color: #3f3f46;
-      line-height: 1.7;
-    }
-
-    .faq-list {
-      margin: 0.65rem 0 0;
-      padding-left: 1.1rem;
-      color: #3f3f46;
-      line-height: 1.68;
-    }
-
-    .faq-list li + li {
-      margin-top: 0.28rem;
-    }
-
-    .faq-note {
-      margin-top: 0.65rem;
-      font-size: 0.92rem;
-      color: #616169;
-    }
-
-    .legal-note {
-      margin: 0;
-      color: #4c4c52;
-      line-height: 1.7;
-    }
-
-    .legal-links {
-      margin-top: 0.85rem;
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.65rem;
-    }
-
-    footer {
-      margin-top: 1.75rem;
-      text-align: center;
-      color: var(--muted);
-      font-size: 0.9rem;
-      padding-bottom: 0.5rem;
-    }
-
-    .toast {
-      position: fixed;
-      left: 50%;
-      bottom: 1rem;
-      transform: translate(-50%, 20px);
-      background: rgba(29, 29, 31, 0.94);
-      color: #fff;
-      border-radius: 999px;
-      padding: 0.55rem 0.95rem;
-      font-size: 0.85rem;
-      opacity: 0;
-      pointer-events: none;
-      transition: opacity 180ms ease, transform 180ms ease;
-    }
-
-    .toast.show {
-      opacity: 1;
-      transform: translate(-50%, 0);
-    }
-
-    @media (min-width: 860px) {
-      .hero {
-        padding: 2.7rem 2.5rem;
-      }
-
-      .grid {
-        grid-template-columns: 1.08fr 0.92fr;
-        margin-top: 1.45rem;
-      }
-    }
-  </style>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="support.css">
 </head>
 <body>
   <main class="wrap">
     <section class="hero" aria-labelledby="page-title">
-      <div class="hero-top" aria-label="Language switch">
-        <div class="lang-switch">
-          <a class="lang-btn" href="index.html" data-lang="vi">Tiếng Việt</a>
-          <a class="lang-btn active" href="index-en.html" data-lang="en">English</a>
-        </div>
-      </div>
+      <div class="hero-top"><nav class="lang-switch" aria-label="Language">
+        <a class="lang-btn" href="index.html" data-lang="vi" lang="vi" >Tiếng Việt</a>
+        <a class="lang-btn active" href="index-en.html" data-lang="en" lang="en" aria-current="page">English</a>
+      </nav></div>
       <span class="badge">Official support</span>
       <h1 id="page-title">Bao giờ đến Tết</h1>
-      <p>
-        Official support page for <strong>Bao giờ đến Tết</strong> users.
-        If you encounter issues, want to suggest features, or need account-related support, please use the contact methods below.
-      </p>
+      <p>Count down to Tet and your family’s important dates. Find help with the redesigned interface, events, reminders, lunar calendar and widgets — or contact us for assistance.</p>
       <div class="actions">
-        <a class="button primary" href="mailto:ben.nguyenvn18@gmail.com?subject=[Bao%20gio%20den%20Tet]%20Support%20request">Contact support</a>
-        <a class="button ghost" href="#faq">Browse FAQs</a>
+        <a class="button primary" href="#faq">Browse help</a>
+        <a class="button ghost" href="mailto:ben.nguyenvn18@gmail.com">Contact support</a>
       </div>
     </section>
-
+    <section class="section card" aria-labelledby="features-title">
+      <h2 id="features-title">What can the app do?</h2>
+      <div class="features"><article class="feature"><h3>Count down to Tet</h3><p>Days, weeks or months, hours and minutes, seconds and New Year fireworks.</p></article><article class="feature"><h3>Your own important dates</h3><p>Lunar or solar events, yearly repeats and reminders at your chosen time.</p></article><article class="feature"><h3>Lunar calendar & Tet stories</h3><p>Look up lunar and solar dates and explore seven chapters about Tet traditions.</p></article><article class="feature"><h3>Personalize & share</h3><p>Six Tet backgrounds, your own photo, three event styles and shareable countdown images.</p></article></div>
+    </section>
     <section class="grid" aria-label="Support information">
       <article class="card">
         <h2>Contact information</h2>
-        <div class="row">
-          <div class="label">Email</div>
-          <div class="value">
-            <a href="mailto:ben.nguyenvn18@gmail.com">ben.nguyenvn18@gmail.com</a>
-          </div>
-        </div>
-        <div class="row">
-          <div class="label">Response time</div>
-          <div class="value">Within 24-48 business hours</div>
-        </div>
-        <div class="row">
-          <div class="label">Status</div>
-          <div class="value"><span class="status">Service operating normally</span></div>
-        </div>
+        <div class="row"><div class="label">Email</div><div class="value"><a href="mailto:ben.nguyenvn18@gmail.com">ben.nguyenvn18@gmail.com</a></div></div>
+        <div class="row"><div class="label">Response time</div><div class="value">Within 24–48 business hours</div></div>
       </article>
-
       <article class="card">
-        <h2>How to send a useful report</h2>
+        <h2>Send a support request</h2>
         <ol class="list">
-          <li>Include your device details (iOS/Android + OS version).</li>
-          <li>Describe what happened and attach screenshots if available.</li>
-          <li>Include app version so we can investigate faster.</li>
+          <li>Include your device (iPhone/iPad, Android or Mac), operating system and app version.</li>
+          <li>Describe the steps that caused the issue and what you expected.</li>
+          <li>If attaching screenshots, hide any unnecessary personal information.</li>
         </ol>
         <div class="actions">
-          <button class="button ghost" type="button" data-copy-email data-copy-success="Support email copied" data-copy-fail="Unable to copy. Please copy manually">Copy support email</button>
-          <a class="button primary" href="mailto:ben.nguyenvn18@gmail.com?subject=[Bao%20gio%20den%20Tet]%20Bug%20report&body=Hello%20Bao%20gio%20den%20Tet%20team,%0A%0AI%20found%20an%20issue:%0A-%20Device:%0A-%20App%20version:%0A-%20Details:%0A">Bug report template</a>
+          <button class="button ghost" type="button" data-copy-email data-copy-success="Support email copied" data-copy-fail="Unable to copy. Please copy the email address from the contact section.">Copy email</button>
+          <a class="button primary" href="mailto:ben.nguyenvn18@gmail.com?subject=%5BBao%20gi%E1%BB%9D%20%C4%91%E1%BA%BFn%20T%E1%BA%BFt%5D%20Bug%20report&amp;body=Hello%2C%0A%0AI%20encountered%20an%20issue%3A%0A-%20Device%20and%20operating%20system%3A%0A-%20App%20version%3A%0A-%20Steps%20to%20reproduce%3A%0A-%20Expected%20result%3A%0A-%20Actual%20result%3A%0A-%20Time%20zone%20%28for%20date%20or%20reminder%20issues%29%3A%0A">Bug report template</a>
         </div>
       </article>
     </section>
+    <section class="section card" aria-labelledby="faq">
+      <h2 id="faq">Frequently asked questions</h2>
+      <nav class="topic-nav" aria-label="Help topics"><a href="#settings">Settings & countdown</a><a href="#events">Events & reminders</a><a href="#calendar">Lunar calendar & sharing</a><a href="#widgets">Widgets & data</a></nav>
+      <section class="faq-group" aria-labelledby="settings"><h3 id="settings">Settings & countdown</h3><div class="faq"><details><summary>Where are settings?</summary><p>Open the menu at the top right of the home screen, then choose <strong>Settings</strong>. You can also reach <strong>Add event</strong>, <strong>Lunar calendar</strong> and <strong>Share</strong> from this menu.</p></details>
+<details><summary>Are settings saved automatically?</summary><p>Yes. Each change in <strong>Settings</strong> is applied and saved immediately. Return to the home screen without pressing Done. When creating or editing an event, use <strong>Save event</strong> (or <strong>Save</strong> for a built-in holiday).</p></details>
+<details><summary>How do I change the background or use my own photo?</summary><p>Go to <strong>Settings → Background</strong> to choose one of six Tet backgrounds or select <strong>Your photo</strong>. Your selected photo is copied into app storage for use as a background; the app does not upload it to a server.</p></details>
+<details><summary>Can I change the counting format and text size?</summary><p>In <strong>Settings → Counting</strong>, choose <strong>By day</strong>, <strong>By week</strong> or <strong>By month</strong>. Months use 30-day units rather than calendar months. <strong>Text size</strong> offers <strong>Small</strong>, <strong>Medium</strong> and <strong>Large</strong>.</p></details>
+<details><summary>How do I show hours, minutes and seconds?</summary><p>Turn on <strong>Show hours and minutes</strong> in <strong>Settings</strong> to reveal <strong>Show seconds</strong>. With less than a day remaining, the countdown automatically switches to hours and minutes. In the final minute, it focuses on seconds and temporarily hides the menu.</p></details>
+<details><summary>Where did Text effects, Text position and Revert go?</summary><p>The redesigned interface uses a fixed text layout with three text sizes. Settings save immediately, so there is no Revert button or per-tab save step.</p></details>
+<details><summary>What happens at Lunar New Year?</summary><p>If the app is open at the turn of the year, the countdown ends with fireworks. Tap to skip the show. During the first three days of Tet, the screen shows the day of Tet and a <strong>Watch fireworks</strong> button. Afterwards, it counts down to the next Tet.</p></details>
+<details><summary>How do I change the app language?</summary><p>Go to <strong>Settings → Language</strong> and choose <strong>Tiếng Việt</strong> or <strong>English</strong>. This choice is also sent to the device widget. The language switch on this website only changes the support pages.</p></details></div></section>
+<section class="faq-group" aria-labelledby="events"><h3 id="events">Events & reminders</h3><div class="faq"><details><summary>How do I add a birthday or anniversary?</summary><p>Open the menu → <strong>Add event</strong>. Enter a name, select <strong>Lunar</strong> or <strong>Solar</strong> and choose a date. Optionally enable <strong>Repeat yearly</strong>, <strong>Show on the home screen</strong> and <strong>Remind me</strong>, then tap <strong>Save event</strong>.</p></details>
+<details><summary>Where do I manage holidays and personal events?</summary><p>Go to <strong>Settings → Event list</strong>. <strong>General</strong> contains built-in holidays and <strong>Personal</strong> contains your own events. Toggle milestones, or edit and delete personal events. Built-in holiday names and dates are fixed. Holiday dates do not represent an official annual leave or compensatory day-off schedule.</p></details>
+<details><summary>How do I change the event display?</summary><p>Go to <strong>Settings → Event style</strong> and choose <strong>Glass card</strong>, <strong>Glass pills</strong> or <strong>Swipe card</strong>. Scroll or swipe the event band to see more milestones; tap one to open its details.</p></details>
+<details><summary>How do I set an event reminder?</summary><p>Open an event, turn on <strong>Remind me</strong> and allow notifications when prompted. Choose the event day or a number of days beforehand, select a time and save the event. Keep <strong>Show on the home screen</strong> enabled: disabled milestones are not scheduled for reminders.</p></details>
+<details><summary>Why did a reminder not arrive?</summary><p>Check that the event is saved, enabled and has a reminder time in the future. Check notification permission in system settings. On Android, also review battery restrictions using the guidance in the event editor. Reopen the app after changing permissions or time zones to refresh reminders. Delivery timing can be affected by the operating system.</p></details>
+<details><summary>Does a yearly lunar event keep the same solar date?</summary><p>No. The app calculates the corresponding solar date for each year. A personal event on lunar day 30 skips years where that month has only 29 days and looks for the next valid occurrence; it does not silently move your event to day 29.</p></details></div></section>
+<section class="faq-group" aria-labelledby="calendar"><h3 id="calendar">Lunar calendar & sharing</h3><div class="faq"><details><summary>Where can I view and convert lunar and solar dates?</summary><p>Open the menu → <strong>Lunar calendar</strong>. Browse months and select a date for its lunar/solar details, traditional cyclical names and auspicious hours. Use <strong>Choose date</strong> to look up a lunar or solar date, or <strong>Today</strong> to return to the current date.</p></details>
+<details><summary>How do I share a countdown image?</summary><p>Open the menu → <strong>Share</strong>, review the preview and tap <strong>Share</strong> to choose a destination app. The image contains your background and Tet countdown, without the personal event band. If you use your own background photo, it will appear in the shared image.</p></details>
+<details><summary>Where is “What is Tet”?</summary><p>Go to <strong>Settings → About</strong> to read seven chapters about Tet. Reading progress is stored on your device so you can continue or start again.</p></details></div></section>
+<section class="faq-group" aria-labelledby="widgets"><h3 id="widgets">Widgets & data</h3><div class="faq"><details><summary>How do I add an iPhone or Android widget?</summary><p>Touch and hold an empty area of your home screen, open the widget list and choose <strong>Bao giờ đến Tết</strong>. On iPhone, choose a size and add it; on Android, drag the widget into place. See the <a href="https://support.apple.com/en-euro/guide/iphone/iphb8f1bf206/ios">Apple</a> or <a href="https://support.google.com/android/answer/9450271?hl=en-en">Google</a> instructions if your device uses different menus.</p></details>
+<details><summary>Which widget types are supported?</summary><p>iOS offers small and medium Home Screen widgets and circular and rectangular Lock Screen widgets. Android offers a Home Screen widget. Widgets receive the app language and background; the background is blurred for readability, while Lock Screen widgets use system styling. The macOS app has no separate native widget.</p></details>
+<details><summary>What if an old widget is blank after updating?</summary><p>Open the app once, remove the old widget and add the current widget from the picker. The widget set changed with the redesign. If the background or language has not changed yet, allow time for the system to refresh it; widgets do not run continuously like the app screen.</p></details>
+<details><summary>Do I need an account or Internet access?</summary><p>No account is required. The countdown, events, lunar calendar and Tet chapters use on-device data. Sending support email or sharing through another app may require Internet access.</p></details>
+<details><summary>Does my data sync to another device?</summary><p>The app has no account sync or app-managed cloud backup. Events, reminders, settings, background photos and reading progress are stored on your device. Clearing app data or uninstalling can remove this data; restoration depends on any operating-system backup. See the <a href="privacy.html?lang=en">Privacy Policy</a>.</p></details></div></section>
 
-    <section class="section card" id="faq" aria-label="Frequently asked questions">
-      <h2>Frequently asked questions</h2>
-      <div class="faq">
-        <details>
-          <summary>Where do I open countdown settings?</summary>
-          <p>Tap the screen to show the gear button, then tap that button to open the settings page.</p>
-        </details>
-        <details>
-          <summary>Why does the gear button disappear?</summary>
-          <p>The button auto-hides after about 3 seconds. Just tap the screen again to show it.</p>
-        </details>
-        <details>
-          <summary>How do I change the background?</summary>
-          <ul class="faq-list">
-            <li>Open the <strong>Background</strong> tab.</li>
-            <li>Swipe left/right or tap the left/right arrows to switch templates.</li>
-          </ul>
-        </details>
-        <details>
-          <summary>Where can I change countdown display format?</summary>
-          <p>Open the <strong>Count Style</strong> tab and choose:</p>
-          <ul class="faq-list">
-            <li>By day</li>
-            <li>By week + day</li>
-            <li>By month + day</li>
-          </ul>
-        </details>
-        <details>
-          <summary>Why can the “month” value differ from calendar intuition?</summary>
-          <p>Because in code, month is currently converted as 30 days per month for quick display.</p>
-        </details>
-        <details>
-          <summary>How do I change text effects?</summary>
-          <p>Open the <strong>Text Effects</strong> tab and swipe or tap arrows to choose a style.</p>
-        </details>
-        <details>
-          <summary>Where do I adjust font size?</summary>
-          <p>Open the <strong>Font Size</strong> tab and drag the slider. Current range is 0.5 to 2.0.</p>
-        </details>
-        <details>
-          <summary>Where do I adjust countdown line position?</summary>
-          <p>Open the <strong>Text Position</strong> tab and drag the slider. You can move text up or down as needed.</p>
-        </details>
-        <details>
-          <summary>How do I turn hour & minute display on/off?</summary>
-          <p>Open the <strong>Hour & Minute</strong> tab to switch between on and off.</p>
-        </details>
-        <details>
-          <summary>Why is the colon between hour and minute blinking?</summary>
-          <p>This is an intentional effect synchronized with each second.</p>
-        </details>
-        <details>
-          <summary>Where do I change app language?</summary>
-          <p>Open the <strong>Language</strong> tab and choose Tiếng Việt or English.</p>
-        </details>
-        <details>
-          <summary>Are settings auto-saved?</summary>
-          <p>Yes, with the new mechanism:</p>
-          <ul class="faq-list">
-            <li>When you switch tabs: previous tab is saved (if there are changes).</li>
-            <li><strong>Revert</strong> button: restores current tab to its saved state.</li>
-            <li><strong>Done</strong> button: saves current tab and exits.</li>
-            <li>System Back button: discards unsaved changes of current tab and exits.</li>
-          </ul>
-        </details>
-        <details>
-          <summary>When does the app show “Happy New Year!”?</summary>
-          <p>When remaining days &lt;= 0. If hour/minute is enabled, it shows 00h : 00p (or 00h : 00m in English).</p>
-        </details>
-        <details>
-          <summary>Does the app need internet to run countdown?</summary>
-          <p>Internet is not required for core countdown logic; the app uses built-in Tet date data and device time.</p>
-        </details>
-        <details>
-          <summary>How do I add widgets on iOS?</summary>
-          <p>iOS: go to Home Screen, long-press background until icons jiggle, choose Edit → Add Widget → select widget → Add Widget → Done.</p>
-        </details>
-        <details>
-          <summary>How do I add widgets on Android?</summary>
-          <p>Android: long-press empty Home Screen area → Widgets → choose app → long-press widget and drag to screen.</p>
-        </details>
-        <details>
-          <summary>How do I resize/remove widgets?</summary>
-          <ul class="faq-list">
-            <li>Android: long-press widget to resize, or drag to Remove area to delete.</li>
-            <li>iOS: long-press widget to edit/rearrange; remove widget from context menu.</li>
-          </ul>
-        </details>
-        <details>
-          <summary>Why does the widget not update in real-time every second?</summary>
-          <p>Widgets are always limited by operating system policies:</p>
-          <ul class="faq-list">
-            <li>Android: <strong>updatePeriodMillis</strong> does not support less than 30 minutes (for periodic updates).</li>
-            <li>iOS: <strong>WidgetKit</strong> uses timeline/scheduling; extension does not run continuously like the app screen.</li>
-          </ul>
-        </details>
-        <details>
-          <summary>Where do I open system App Settings?</summary>
-          <ul class="faq-list">
-            <li>iOS: Settings → Apps → choose the app.</li>
-            <li>Android: Settings → Apps → choose the app → Permissions.</li>
-          </ul>
-        </details>
-      </div>
     </section>
-
-    <section class="section card" aria-label="Legal information">
-      <h2>Policy & legal</h2>
-      <p class="legal-note">
-        You can switch language directly inside each policy page.
-      </p>
+    <section class="section card" aria-labelledby="legal-title">
+      <h2 id="legal-title">Policies & terms</h2>
+      <p class="legal-note">Learn how the app stores events, uses your selected photo and handles reminders.</p>
       <div class="legal-links">
         <a class="button ghost" href="privacy.html?lang=en">Privacy Policy</a>
         <a class="button ghost" href="terms.html?lang=en">Terms of Use</a>
       </div>
     </section>
-
-    <footer>
-      © <span id="current-year"></span> Bao giờ đến Tết. All rights reserved.
-    </footer>
+    <footer>© <span id="current-year">2026</span> Bao giờ đến Tết. All rights reserved.</footer>
   </main>
-
   <p class="toast" id="toast" role="status" aria-live="polite"></p>
   <script src="index.js"></script>
 </body>

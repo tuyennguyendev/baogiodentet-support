@@ -22,6 +22,11 @@
     }
 
     * { box-sizing: border-box; }
+    button { font: inherit; }
+    a { overflow-wrap: anywhere; }
+    a:focus-visible, button:focus-visible { outline: 3px solid var(--primary); outline-offset: 4px; }
+    .lang-btn { min-height: 44px; }
+
 
     body {
       margin: 0;
@@ -63,7 +68,7 @@
     .lang-btn {
       border-radius: 999px;
       padding: 0.42rem 0.74rem;
-      font-size: 0.82rem;
+      font-size: 0.875rem;
       text-decoration: none;
       color: #334155;
       font-weight: 600;
@@ -178,13 +183,13 @@
         <p>Khi cài đặt, truy cập hoặc sử dụng ứng dụng Bao giờ đến Tết, bạn đồng ý với các điều khoản sử dụng này.</p>
 
         <h2>2. Mô tả dịch vụ</h2>
-        <p>Ứng dụng cung cấp tính năng đếm ngược đến Tết Âm lịch, tùy chỉnh giao diện hiển thị và widget trên nền tảng được hỗ trợ.</p>
+        <p>Ứng dụng cung cấp đếm ngược đến Tết và pháo hoa đón năm mới; sự kiện cá nhân theo âm/dương lịch, lặp hằng năm và lời nhắc cục bộ; lịch âm và tra đổi ngày; nội dung tìm hiểu Tết; tùy chỉnh nền, cỡ chữ, cách đếm và kiểu sự kiện; chia sẻ ảnh đếm ngược; widget trên iOS và Android. Bản macOS không có widget riêng.</p>
 
         <h2>3. Quyền và trách nhiệm người dùng</h2>
         <ul>
           <li>Sử dụng ứng dụng cho mục đích cá nhân, hợp pháp.</li>
           <li>Không can thiệp hoặc khai thác ứng dụng theo cách gây gián đoạn hoạt động.</li>
-          <li>Tự chịu trách nhiệm với nội dung bạn gửi qua email hỗ trợ.</li>
+          <li>Tự chịu trách nhiệm với nội dung bạn gửi qua email hỗ trợ và ảnh bạn chủ động chia sẻ; chỉ sử dụng ảnh bạn có quyền sử dụng.</li>
         </ul>
 
         <h2>4. Sở hữu trí tuệ</h2>
@@ -192,6 +197,9 @@
 
         <h2>5. Từ chối bảo đảm</h2>
         <p>Ứng dụng được cung cấp trên cơ sở "nguyên trạng". Chúng tôi nỗ lực duy trì độ chính xác và ổn định, nhưng không bảo đảm tuyệt đối rằng ứng dụng không có lỗi hoặc gián đoạn trong mọi trường hợp.</p>
+
+        <p>Đếm ngược và lịch nhắc phụ thuộc vào đồng hồ, múi giờ, quyền thông báo và cách hệ điều hành quản lý ứng dụng. Widget có thể cập nhật chậm hơn màn hình ứng dụng. Các mốc ngày lễ không phải lịch nghỉ bù hoặc lịch nghỉ chính thức hằng năm; thông tin giờ tốt là nội dung tham khảo theo lịch truyền thống.</p>
+        <p>Ứng dụng không cung cấp đồng bộ tài khoản hoặc sao lưu đám mây riêng. Việc xóa dữ liệu ứng dụng hoặc gỡ cài đặt có thể làm mất các sự kiện, ảnh và tùy chỉnh trên thiết bị.</p>
 
         <h2>6. Giới hạn trách nhiệm</h2>
         <p>Trong phạm vi pháp luật cho phép, đơn vị vận hành không chịu trách nhiệm đối với thiệt hại gián tiếp hoặc hệ quả phát sinh từ việc sử dụng hoặc không thể sử dụng ứng dụng.</p>
@@ -236,13 +244,13 @@
         <p>By installing, accessing, or using the Bao giờ đến Tết app, you agree to these Terms of Use.</p>
 
         <h2>2. Service Description</h2>
-        <p>The app provides countdown to Lunar New Year, interface customization, and widgets on supported platforms.</p>
+        <p>The app provides a Tet countdown and New Year fireworks; personal lunar or solar events, yearly repeats and local reminders; a lunar calendar and date conversion; Tet chapters; background, text size, counting format and event style settings; countdown image sharing; and widgets on iOS and Android. The macOS app has no separate native widget.</p>
 
         <h2>3. User Responsibilities</h2>
         <ul>
           <li>Use the app for lawful personal purposes.</li>
           <li>Do not interfere with or misuse the app in ways that disrupt operations.</li>
-          <li>You are responsible for content submitted through support email.</li>
+          <li>You are responsible for content sent to support and images you choose to share; use only images you have permission to use.</li>
         </ul>
 
         <h2>4. Intellectual Property</h2>
@@ -250,6 +258,9 @@
 
         <h2>5. Disclaimer</h2>
         <p>The app is provided on an "as is" basis. We strive for accuracy and reliability but do not guarantee uninterrupted or error-free operation in all cases.</p>
+
+        <p>Countdowns and reminders depend on the device clock, time zone, notification permission and operating-system restrictions. Widgets may refresh later than the app screen. Holiday milestones are not an official annual leave or compensatory day-off schedule; auspicious hours are traditional calendar reference information.</p>
+        <p>The app does not provide account sync or app-managed cloud backup. Clearing app data or uninstalling may remove events, photos and settings stored on the device.</p>
 
         <h2>6. Limitation of Liability</h2>
         <p>To the extent permitted by law, the operator is not liable for indirect or consequential damages arising from the use of or inability to use the app.</p>
@@ -309,14 +320,18 @@
         const safeLang = lang === "en" ? "en" : "vi";
         document.body.setAttribute("data-lang", safeLang);
         document.documentElement.lang = safeLang;
+        const heading = document.querySelector(`.lang-${safeLang} h1`);
+        if (heading) document.title = `Bao giờ đến Tết | ${heading.textContent}`;
 
         buttons.forEach((button) => {
-          button.classList.toggle("active", button.getAttribute("data-lang-btn") === safeLang);
+          const active = button.getAttribute("data-lang-btn") === safeLang;
+          button.classList.toggle("active", active);
+          button.setAttribute("aria-pressed", String(active));
         });
 
         const url = new URL(window.location.href);
         url.searchParams.set("lang", safeLang);
-        window.history.replaceState({}, "", url.pathname + url.search);
+        window.history.replaceState({}, "", url.pathname + url.search + url.hash);
         setStoredLang(safeLang);
       };
 

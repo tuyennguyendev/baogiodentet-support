@@ -22,6 +22,11 @@
     }
 
     * { box-sizing: border-box; }
+    button { font: inherit; }
+    a { overflow-wrap: anywhere; }
+    a:focus-visible, button:focus-visible { outline: 3px solid var(--primary); outline-offset: 4px; }
+    .lang-btn { min-height: 44px; }
+
 
     body {
       margin: 0;
@@ -63,7 +68,7 @@
     .lang-btn {
       border-radius: 999px;
       padding: 0.42rem 0.74rem;
-      font-size: 0.82rem;
+      font-size: 0.875rem;
       text-decoration: none;
       color: #334155;
       font-weight: 600;
@@ -175,33 +180,42 @@
         <p class="meta">Liên hệ pháp lý: <a href="mailto:ben.nguyenvn18@gmail.com">ben.nguyenvn18@gmail.com</a></p>
 
         <h2>1. Phạm vi áp dụng</h2>
-        <p>Chính sách này mô tả cách ứng dụng Bao giờ đến Tết xử lý dữ liệu khi bạn sử dụng ứng dụng.</p>
+        <p>Chính sách này mô tả cách ứng dụng Bao giờ đến Tết xử lý dữ liệu, cùng hoạt động của trang hỗ trợ và kênh email liên hệ.</p>
 
-        <h2>2. Dữ liệu được thu thập</h2>
-        <p>Ứng dụng không thu thập dữ liệu cá nhân từ bên trong app.</p>
+        <h2>2. Dữ liệu trên thiết bị</h2>
+        <p>Ứng dụng không có tài khoản đăng nhập, không gửi dữ liệu sử dụng đến máy chủ của đơn vị vận hành, không tích hợp SDK phân tích, báo cáo lỗi hoặc quảng cáo.</p>
+        <p>Các dữ liệu sau được xử lý và lưu cục bộ để cung cấp tính năng bạn sử dụng:</p>
         <ul>
-          <li>Không dùng tài khoản hoặc đăng nhập.</li>
-          <li>Không dùng SDK analytics hoặc crash reporting.</li>
-          <li>Không hiển thị quảng cáo và không theo dõi Advertising ID.</li>
-          <li>Các tùy chỉnh giao diện được lưu cục bộ trên thiết bị của bạn.</li>
+          <li>Cài đặt giao diện, ngôn ngữ và lựa chọn hình nền.</li>
+          <li>Tên, ngày âm/dương lịch, trạng thái hiển thị, chế độ lặp và cấu hình lời nhắc của sự kiện.</li>
+          <li>Bản sao ảnh bạn chọn làm hình nền và tiến độ đọc các chương về Tết.</li>
         </ul>
 
-        <h2>3. Mục đích sử dụng</h2>
-        <p>Ứng dụng hoạt động dựa trên thời gian hệ thống và dữ liệu ngày Tết được tích hợp sẵn để hiển thị đếm ngược.</p>
+        <h2>3. Ảnh, thông báo và widget</h2>
         <ul>
-          <li>Không xử lý dữ liệu cá nhân trên máy chủ.</li>
-          <li>Không xây dựng hồ sơ hành vi người dùng.</li>
+          <li><strong>Ảnh nền:</strong> khi bạn chọn “Ảnh của bạn”, ứng dụng mở trình chọn ảnh của hệ thống và sao chép ảnh được chọn vào vùng lưu trữ của ứng dụng. Ảnh không được tải lên máy chủ của chúng tôi. Tính năng này chọn ảnh có sẵn, không sử dụng camera hay ghi âm.</li>
+          <li><strong>Thông báo:</strong> ứng dụng xin quyền khi bạn bật lời nhắc. Tên sự kiện và thời điểm nhắc được chuyển cho hệ điều hành để lên lịch thông báo cục bộ. Tên sự kiện có thể hiển thị trên màn hình khóa tùy cài đặt thông báo của bạn.</li>
+          <li><strong>Thời gian:</strong> ứng dụng dùng đồng hồ và múi giờ của thiết bị để tính ngày và lên lịch nhắc; không cần vị trí GPS.</li>
+          <li><strong>Widget:</strong> ngôn ngữ và bản ảnh nền đã thu nhỏ được chia sẻ với thành phần widget trên cùng thiết bị để hiển thị đếm ngược.</li>
         </ul>
 
-        <h2>4. Chia sẻ dữ liệu</h2>
-        <p>Chúng tôi không bán, cho thuê hoặc chia sẻ dữ liệu cá nhân của bạn cho bên thứ ba.</p>
+        <h2>4. Chia sẻ ảnh và liên hệ hỗ trợ</h2>
+        <p>Khi bạn chọn Chia sẻ, ứng dụng tạo một ảnh PNG tạm gồm nền và nội dung đếm ngược Tết, không kèm dải sự kiện cá nhân, rồi mở bảng chia sẻ của hệ thống. Nếu nền là ảnh của bạn, ảnh đó sẽ có trong nội dung chia sẻ. Chỉ ứng dụng hoặc nơi nhận bạn chọn mới nhận ảnh qua thao tác này; việc xử lý tiếp theo tuân theo chính sách của bên nhận.</p>
+        <p>Nếu bạn gửi email hỗ trợ, chúng tôi nhận địa chỉ email cùng nội dung và tệp đính kèm bạn chủ động gửi để xử lý yêu cầu. Trao đổi được xử lý qua dịch vụ email, không nhập vào cơ sở dữ liệu riêng của ứng dụng. Chúng tôi không bán hoặc cho thuê dữ liệu cá nhân.</p>
 
-        <h2>5. Lưu trữ dữ liệu</h2>
-        <p>Chúng tôi không lưu dữ liệu người dùng trong hệ thống backend. Dữ liệu tùy chỉnh chỉ nằm trên thiết bị của bạn.</p>
-        <p>Với yêu cầu hỗ trợ gửi qua email, nội dung trao đổi được xử lý qua dịch vụ email và không được nhập vào hệ thống lưu trữ riêng của ứng dụng.</p>
+        <h2>5. Lưu trữ và xóa dữ liệu</h2>
+        <p>Ứng dụng không cung cấp đồng bộ tài khoản hoặc sao lưu đám mây riêng. Dữ liệu ứng dụng nằm trên thiết bị; việc sao lưu hoặc khôi phục bởi hệ điều hành phụ thuộc vào cấu hình thiết bị và dịch vụ bạn sử dụng.</p>
+        <ul>
+          <li>Bạn có thể sửa hoặc xóa sự kiện cá nhân trong Danh sách sự kiện và tắt lời nhắc trong màn sửa sự kiện.</li>
+          <li>Chọn một ảnh cá nhân mới sẽ thay bản sao ảnh cá nhân trước đó trong vùng lưu ảnh nền. Chuyển sang ảnh có sẵn không đồng nghĩa xóa ngay bản sao ảnh đã nhập.</li>
+          <li>Ảnh PNG dùng để chia sẻ nằm trong vùng lưu trữ tạm và có thể được hệ điều hành dọn dẹp. Bản đã gửi cho ứng dụng khác do bên nhận quản lý.</li>
+          <li>Xóa dữ liệu ứng dụng hoặc gỡ cài đặt có thể xóa cài đặt, sự kiện, ảnh và tiến độ đọc. Dữ liệu trong bản sao lưu của hệ điều hành, nếu có, được quản lý riêng.</li>
+        </ul>
 
-        <h2>6. Quyền của người dùng</h2>
-        <p>Bạn có thể liên hệ qua email để yêu cầu hỗ trợ liên quan đến quyền riêng tư.</p>
+        <h2>6. Lựa chọn của bạn và trang hỗ trợ</h2>
+        <p>Bạn có thể từ chối hoặc thu hồi quyền thông báo trong cài đặt hệ thống và tiếp tục dùng các chức năng khác. Việc chọn ảnh riêng và chia sẻ ảnh là tùy chọn.</p>
+        <p>Website hỗ trợ này ghi nhớ ngôn ngữ bạn chọn trong bộ nhớ trình duyệt (localStorage). Bạn có thể xóa dữ liệu website trong trình duyệt để xóa lựa chọn đó. Website tải phông chữ từ Google Fonts, tạo kết nối từ trình duyệt đến dịch vụ này; đây là hoạt động của website, khác với phông chữ được đóng gói sẵn trong ứng dụng.</p>
+        <p>Liên hệ email bên dưới nếu bạn cần hỗ trợ về dữ liệu đã gửi qua email hoặc quyền riêng tư.</p>
 
         <h2>7. Độ tuổi sử dụng</h2>
         <p>Ứng dụng phù hợp cho người dùng từ <strong>4 tuổi trở lên</strong>. Ứng dụng không chủ đích thu thập dữ liệu cá nhân của trẻ em.</p>
@@ -213,7 +227,7 @@
         <p>Người vận hành: Nguyễn Văn Tuyền</p>
         <p>Email hỗ trợ: <a href="mailto:ben.nguyenvn18@gmail.com">ben.nguyenvn18@gmail.com</a></p>
 
-        <p class="note">Bằng việc tiếp tục sử dụng ứng dụng từ ngày 14/03/2026, bạn xác nhận đã đọc và hiểu chính sách này.</p>
+
 
         <div class="actions">
           <a class="button" href="index.html">Quay lại trang hỗ trợ</a>
@@ -230,33 +244,42 @@
         <p class="meta">Legal contact: <a href="mailto:ben.nguyenvn18@gmail.com">ben.nguyenvn18@gmail.com</a></p>
 
         <h2>1. Scope</h2>
-        <p>This policy describes how the Bao giờ đến Tết app handles data when you use the app.</p>
+        <p>This policy describes data handling in the Bao giờ đến Tết app, the support website and the support email channel.</p>
 
-        <h2>2. Data Collected</h2>
-        <p>The app does not collect personal data from within the app itself.</p>
+        <h2>2. On-device Data</h2>
+        <p>The app has no account system, does not send usage data to the operator’s servers, and includes no analytics, crash reporting or advertising SDKs.</p>
+        <p>The following data is processed and stored locally to provide the features you use:</p>
         <ul>
-          <li>No account or sign-in system.</li>
-          <li>No analytics or crash reporting SDKs.</li>
-          <li>No ads and no advertising ID tracking.</li>
-          <li>Customization settings are stored locally on your device.</li>
+          <li>Display settings, language and background selection.</li>
+          <li>Event names, lunar or solar dates, visibility, repeat settings and reminder configuration.</li>
+          <li>A copy of the photo you select as a background and your Tet chapter reading progress.</li>
         </ul>
 
-        <h2>3. Purpose of Processing</h2>
-        <p>The app runs using system time and built-in Lunar New Year date data to display the countdown.</p>
+        <h2>3. Photos, Notifications and Widgets</h2>
         <ul>
-          <li>No personal data is processed on remote servers.</li>
-          <li>No user behavior profiling is performed.</li>
+          <li><strong>Background photos:</strong> selecting “Your photo” opens the system photo picker and copies the chosen image into app storage. The image is not uploaded to our servers. This feature selects existing images and does not use the camera or record audio.</li>
+          <li><strong>Notifications:</strong> the app requests permission when you enable a reminder. Event names and reminder times are passed to the operating system to schedule local notifications. Event names may appear on the Lock Screen depending on your notification settings.</li>
+          <li><strong>Time:</strong> the app uses the device clock and time zone for date calculations and reminders; it does not need GPS location.</li>
+          <li><strong>Widgets:</strong> the language and a reduced-size background image are shared with the widget component on the same device to display the countdown.</li>
         </ul>
 
-        <h2>4. Data Sharing</h2>
-        <p>We do not sell, rent, or share your personal data with third parties.</p>
+        <h2>4. Sharing Images and Contacting Support</h2>
+        <p>When you select Share, the app creates a temporary PNG containing the background and Tet countdown, without the personal event band, and opens the system share sheet. If you use your own background photo, that photo is included. Only the destination you select receives the image through this action; further processing is governed by that recipient’s policy.</p>
+        <p>If you email support, we receive your email address and the message and attachments you choose to send so we can handle your request. Correspondence is handled through the email service and is not imported into a separate app database. We do not sell or rent personal data.</p>
 
-        <h2>5. Data Retention</h2>
-        <p>We do not retain user data in backend systems. Customization data remains on your device only.</p>
-        <p>For support sent by email, communication is handled via email service and is not imported into a separate app database.</p>
+        <h2>5. Storage and Deletion</h2>
+        <p>The app provides no account sync or app-managed cloud backup. App data is held on your device; operating-system backup and restoration depend on your device settings and the services you use.</p>
+        <ul>
+          <li>You can edit or delete personal events in Event list and turn off reminders in the event editor.</li>
+          <li>Importing a new personal photo replaces the previous personal photo copy in background storage. Switching to a built-in background does not immediately delete the imported copy.</li>
+          <li>PNG images prepared for sharing are stored temporarily and may be cleared by the operating system. Copies sent to another app are managed by the recipient.</li>
+          <li>Clearing app data or uninstalling can remove settings, events, photos and reading progress. Any operating-system backup is managed separately.</li>
+        </ul>
 
-        <h2>6. Your Rights</h2>
-        <p>You may contact us by email for privacy-related assistance.</p>
+        <h2>6. Your Choices and the Support Website</h2>
+        <p>You may decline or revoke notification permission in system settings and continue using other features. Selecting a personal photo and sharing an image are optional.</p>
+        <p>This support website remembers your selected language in browser storage (localStorage). You can clear the website’s browser data to remove that preference. The website loads fonts from Google Fonts, which connects your browser to that service; this is separate from the app, which bundles its fonts.</p>
+        <p>Contact the email address below for help with information sent by email or privacy questions.</p>
 
         <h2>7. Children</h2>
         <p>The app is suitable for users aged <strong>4 and above</strong>. The app does not intentionally collect children's personal data.</p>
@@ -268,7 +291,7 @@
         <p>Operator: Nguyễn Văn Tuyền</p>
         <p>Support email: <a href="mailto:ben.nguyenvn18@gmail.com">ben.nguyenvn18@gmail.com</a></p>
 
-        <p class="note">By continuing to use the app from March 14, 2026, you acknowledge that you have read and understood this policy.</p>
+
 
         <div class="actions">
           <a class="button" href="index-en.html">Back to Support</a>
@@ -303,14 +326,18 @@
         const safeLang = lang === "en" ? "en" : "vi";
         document.body.setAttribute("data-lang", safeLang);
         document.documentElement.lang = safeLang;
+        const heading = document.querySelector(`.lang-${safeLang} h1`);
+        if (heading) document.title = `Bao giờ đến Tết | ${heading.textContent}`;
 
         buttons.forEach((button) => {
-          button.classList.toggle("active", button.getAttribute("data-lang-btn") === safeLang);
+          const active = button.getAttribute("data-lang-btn") === safeLang;
+          button.classList.toggle("active", active);
+          button.setAttribute("aria-pressed", String(active));
         });
 
         const url = new URL(window.location.href);
         url.searchParams.set("lang", safeLang);
-        window.history.replaceState({}, "", url.pathname + url.search);
+        window.history.replaceState({}, "", url.pathname + url.search + url.hash);
         setStoredLang(safeLang);
       };
 

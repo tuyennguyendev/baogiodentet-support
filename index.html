@@ -4,564 +4,89 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Bao giờ đến Tết | Trang hỗ trợ</title>
-  <meta name="description" content="Trang hỗ trợ chính thức của ứng dụng Bao giờ đến Tết. Liên hệ, báo lỗi và xem câu hỏi thường gặp.">
+  <meta name="description" content="Hỗ trợ Bao giờ đến Tết: cài đặt, sự kiện âm/dương lịch, lời nhắc, widget, chia sẻ ảnh và quyền riêng tư.">
+  <link rel="alternate" hreflang="vi" href="index.html">
+  <link rel="alternate" hreflang="en" href="index-en.html">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-  <style>
-    :root {
-      --bg: #f5f5f7;
-      --bg-accent: #e8f1ff;
-      --surface: #ffffff;
-      --surface-2: #f8f9fb;
-      --text: #1d1d1f;
-      --muted: #6e6e73;
-      --primary: #0071e3;
-      --primary-strong: #0062c3;
-      --ok: #0f7d3f;
-      --border: #d2d2d7;
-      --shadow: 0 16px 42px rgba(15, 23, 42, 0.08);
-      --radius-lg: 28px;
-      --radius-md: 16px;
-      --radius-sm: 12px;
-      --container: 1040px;
-    }
-
-    * {
-      box-sizing: border-box;
-    }
-
-    html {
-      scroll-behavior: smooth;
-    }
-
-    body {
-      margin: 0;
-      font-family: "Plus Jakarta Sans", sans-serif;
-      color: var(--text);
-      background:
-        radial-gradient(circle at 10% 0%, var(--bg-accent) 0, transparent 34%),
-        linear-gradient(170deg, #fbfbfd 0%, var(--bg) 60%, #f1f2f5 100%);
-      min-height: 100vh;
-    }
-
-    .wrap {
-      width: min(100% - 2rem, var(--container));
-      margin: 0 auto;
-      padding: 2.4rem 0 3rem;
-    }
-
-    .hero {
-      background: linear-gradient(125deg, #ffffff 0%, #fbfdff 56%, #f3f7ff 100%);
-      border: 1px solid var(--border);
-      border-radius: var(--radius-lg);
-      padding: 2.2rem 2rem;
-      box-shadow: var(--shadow);
-      position: relative;
-      overflow: hidden;
-    }
-
-    .hero::after {
-      content: "";
-      position: absolute;
-      inset: auto -10% -40% auto;
-      width: 320px;
-      height: 320px;
-      background: radial-gradient(circle, rgba(0, 113, 227, 0.18) 0, rgba(0, 113, 227, 0) 72%);
-      pointer-events: none;
-    }
-
-    .hero-top {
-      display: flex;
-      justify-content: flex-end;
-      margin-bottom: 1rem;
-      position: relative;
-      z-index: 1;
-    }
-
-    .lang-switch {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.35rem;
-      padding: 0.26rem;
-      border: 1px solid #d8dde8;
-      border-radius: 999px;
-      background: #f7f9ff;
-    }
-
-    .lang-btn {
-      border-radius: 999px;
-      padding: 0.42rem 0.74rem;
-      font-size: 0.82rem;
-      text-decoration: none;
-      color: #334155;
-      font-weight: 600;
-      line-height: 1;
-    }
-
-    .lang-btn.active {
-      background: #e5efff;
-      color: #0a4ea0;
-    }
-
-    .badge {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.5rem;
-      padding: 0.45rem 0.82rem;
-      border-radius: 999px;
-      background: #edf4ff;
-      border: 1px solid #d7e7ff;
-      color: #0a4ea0;
-      font-size: 0.85rem;
-      font-weight: 600;
-      letter-spacing: 0.02em;
-      margin-bottom: 1rem;
-    }
-
-    h1,
-    h2 {
-      margin: 0;
-      line-height: 1.2;
-      color: var(--text);
-      letter-spacing: -0.01em;
-    }
-
-    h1 {
-      font-size: clamp(1.85rem, 4.6vw, 3rem);
-      font-weight: 800;
-      max-width: 18ch;
-    }
-
-    h2 {
-      font-size: clamp(1.25rem, 2.5vw, 1.6rem);
-      font-weight: 700;
-      margin-bottom: 0.9rem;
-    }
-
-    .hero p {
-      margin: 1rem 0 0;
-      max-width: 62ch;
-      color: #424245;
-      line-height: 1.75;
-      font-size: 1.05rem;
-    }
-
-    .actions {
-      margin-top: 1.5rem;
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.8rem;
-    }
-
-    .button {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      border-radius: 999px;
-      padding: 0.78rem 1.2rem;
-      border: 1px solid var(--border);
-      text-decoration: none;
-      font-weight: 600;
-      font-size: 0.95rem;
-      transition: transform 120ms ease, box-shadow 120ms ease, background-color 120ms ease, color 120ms ease;
-    }
-
-    .button.primary {
-      background: var(--primary);
-      color: #fff;
-      border-color: transparent;
-      box-shadow: 0 10px 26px rgba(0, 113, 227, 0.28);
-    }
-
-    .button.primary:hover {
-      background: var(--primary-strong);
-      transform: translateY(-1px) scale(1.01);
-    }
-
-    .button.ghost {
-      background: #f5f5f7;
-      color: var(--text);
-    }
-
-    .button.ghost:hover {
-      background: #ececf0;
-    }
-
-    .grid {
-      margin-top: 1.2rem;
-      display: grid;
-      gap: 1rem;
-      grid-template-columns: 1fr;
-    }
-
-    .card {
-      background: var(--surface);
-      border: 1px solid var(--border);
-      border-radius: var(--radius-md);
-      padding: 1.35rem 1.25rem;
-      box-shadow: 0 10px 28px rgba(15, 23, 42, 0.05);
-    }
-
-    .row {
-      display: grid;
-      grid-template-columns: 120px 1fr;
-      gap: 0.8rem;
-      padding: 0.68rem 0;
-      border-bottom: 1px solid #ececf1;
-    }
-
-    .row:last-child {
-      border-bottom: 0;
-      padding-bottom: 0;
-    }
-
-    .row .label {
-      font-size: 0.9rem;
-      color: var(--muted);
-      font-weight: 600;
-    }
-
-    .row .value {
-      font-size: 0.96rem;
-      color: #111827;
-      font-weight: 600;
-      line-height: 1.5;
-    }
-
-    .value a {
-      color: var(--primary);
-      text-decoration-thickness: 2px;
-      text-underline-offset: 2px;
-    }
-
-    .status {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.45rem;
-      border-radius: 999px;
-      padding: 0.38rem 0.72rem;
-      background: #eef9f2;
-      color: var(--ok);
-      border: 1px solid #caeed8;
-      font-size: 0.85rem;
-      font-weight: 600;
-    }
-
-    .status::before {
-      content: "";
-      width: 8px;
-      height: 8px;
-      border-radius: 999px;
-      background: #17b45a;
-      box-shadow: 0 0 0 4px rgba(23, 180, 90, 0.14);
-    }
-
-    .list {
-      margin: 0;
-      padding-left: 1.15rem;
-      color: #3d3d41;
-      line-height: 1.7;
-    }
-
-    .list li + li {
-      margin-top: 0.3rem;
-    }
-
-    .section {
-      margin-top: 1.2rem;
-    }
-
-    .faq {
-      display: grid;
-      gap: 0.9rem;
-      grid-template-columns: 1fr;
-    }
-
-    details {
-      background: var(--surface-2);
-      border: 1px solid #e5e5ea;
-      border-radius: var(--radius-sm);
-      padding: 1rem;
-    }
-
-    summary {
-      cursor: pointer;
-      list-style: none;
-      font-weight: 600;
-      color: var(--text);
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 0.8rem;
-    }
-
-    summary::-webkit-details-marker {
-      display: none;
-    }
-
-    summary::after {
-      content: "+";
-      font-size: 1.1rem;
-      color: #8b8b90;
-    }
-
-    details[open] summary::after {
-      content: "−";
-    }
-
-    details p {
-      margin: 0.75rem 0 0;
-      color: #3f3f46;
-      line-height: 1.7;
-    }
-
-    .faq-list {
-      margin: 0.65rem 0 0;
-      padding-left: 1.1rem;
-      color: #3f3f46;
-      line-height: 1.68;
-    }
-
-    .faq-list li + li {
-      margin-top: 0.28rem;
-    }
-
-    .faq-note {
-      margin-top: 0.65rem;
-      font-size: 0.92rem;
-      color: #616169;
-    }
-
-    .legal-note {
-      margin: 0;
-      color: #4c4c52;
-      line-height: 1.7;
-    }
-
-    .legal-links {
-      margin-top: 0.85rem;
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.65rem;
-    }
-
-    footer {
-      margin-top: 1.75rem;
-      text-align: center;
-      color: var(--muted);
-      font-size: 0.9rem;
-      padding-bottom: 0.5rem;
-    }
-
-    .toast {
-      position: fixed;
-      left: 50%;
-      bottom: 1rem;
-      transform: translate(-50%, 20px);
-      background: rgba(29, 29, 31, 0.94);
-      color: #fff;
-      border-radius: 999px;
-      padding: 0.55rem 0.95rem;
-      font-size: 0.85rem;
-      opacity: 0;
-      pointer-events: none;
-      transition: opacity 180ms ease, transform 180ms ease;
-    }
-
-    .toast.show {
-      opacity: 1;
-      transform: translate(-50%, 0);
-    }
-
-    @media (min-width: 860px) {
-      .hero {
-        padding: 2.7rem 2.5rem;
-      }
-
-      .grid {
-        grid-template-columns: 1.08fr 0.92fr;
-        margin-top: 1.45rem;
-      }
-    }
-  </style>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="support.css">
 </head>
 <body>
   <main class="wrap">
     <section class="hero" aria-labelledby="page-title">
-      <div class="hero-top" aria-label="Chuyển ngôn ngữ">
-        <div class="lang-switch">
-          <a class="lang-btn active" href="index.html" data-lang="vi">Tiếng Việt</a>
-          <a class="lang-btn" href="index-en.html" data-lang="en">English</a>
-        </div>
-      </div>
-      <span class="badge">Support chính thức</span>
+      <div class="hero-top"><nav class="lang-switch" aria-label="Ngôn ngữ">
+        <a class="lang-btn active" href="index.html" data-lang="vi" lang="vi" aria-current="page">Tiếng Việt</a>
+        <a class="lang-btn" href="index-en.html" data-lang="en" lang="en" >English</a>
+      </nav></div>
+      <span class="badge">Hỗ trợ chính thức</span>
       <h1 id="page-title">Bao giờ đến Tết</h1>
-      <p>
-        Trang hỗ trợ dành cho người dùng ứng dụng <strong>Bao giờ đến Tết</strong>.
-        Nếu bạn gặp lỗi, cần góp ý tính năng, hoặc cần trợ giúp về tài khoản, hãy liên hệ theo thông tin bên dưới.
-      </p>
+      <p>Đếm ngược đến Tết và những ngày quan trọng của gia đình. Tìm hướng dẫn về giao diện mới, sự kiện, lời nhắc, lịch âm và widget — hoặc liên hệ khi bạn cần trợ giúp.</p>
       <div class="actions">
-        <a class="button primary" href="mailto:ben.nguyenvn18@gmail.com?subject=[Bao%20gio%20den%20Tet]%20Yeu%20cau%20ho%20tro">Liên hệ hỗ trợ</a>
-        <a class="button ghost" href="#faq">Xem câu hỏi thường gặp</a>
+        <a class="button primary" href="#faq">Xem hướng dẫn</a>
+        <a class="button ghost" href="mailto:ben.nguyenvn18@gmail.com">Liên hệ hỗ trợ</a>
       </div>
     </section>
-
+    <section class="section card" aria-labelledby="features-title">
+      <h2 id="features-title">Có gì trong ứng dụng?</h2>
+      <div class="features"><article class="feature"><h3>Đếm ngược đến giao thừa</h3><p>Theo ngày, tuần hoặc tháng; giờ/phút, giây và pháo hoa đón năm mới.</p></article><article class="feature"><h3>Những ngày của riêng bạn</h3><p>Sự kiện âm/dương lịch, lặp hằng năm và lời nhắc theo giờ bạn chọn.</p></article><article class="feature"><h3>Lịch âm & câu chuyện Tết</h3><p>Tra ngày âm/dương và khám phá bảy chương về phong tục Tết.</p></article><article class="feature"><h3>Cá nhân hóa & chia sẻ</h3><p>Sáu ảnh nền Tết, ảnh của bạn, ba kiểu sự kiện và ảnh đếm ngược để chia sẻ.</p></article></div>
+    </section>
     <section class="grid" aria-label="Thông tin hỗ trợ">
       <article class="card">
         <h2>Thông tin liên hệ</h2>
-        <div class="row">
-          <div class="label">Email</div>
-          <div class="value">
-            <a href="mailto:ben.nguyenvn18@gmail.com">ben.nguyenvn18@gmail.com</a>
-          </div>
-        </div>
-        <div class="row">
-          <div class="label">Thời gian phản hồi</div>
-          <div class="value">Trong vòng 24-48 giờ làm việc</div>
-        </div>
-        <div class="row">
-          <div class="label">Trạng thái</div>
-          <div class="value"><span class="status">Hệ thống hoạt động ổn định</span></div>
-        </div>
+        <div class="row"><div class="label">Email</div><div class="value"><a href="mailto:ben.nguyenvn18@gmail.com">ben.nguyenvn18@gmail.com</a></div></div>
+        <div class="row"><div class="label">Thời gian phản hồi</div><div class="value">Trong vòng 24–48 giờ làm việc</div></div>
       </article>
-
       <article class="card">
-        <h2>Cách gửi yêu cầu nhanh</h2>
+        <h2>Gửi yêu cầu hỗ trợ</h2>
         <ol class="list">
-          <li>Ghi rõ thiết bị bạn đang dùng (iOS/Android + phiên bản hệ điều hành).</li>
-          <li>Mô tả tình huống xảy ra lỗi và ảnh chụp màn hình (nếu có).</li>
-          <li>Đính kèm phiên bản ứng dụng để đội ngũ xử lý nhanh hơn.</li>
+          <li>Ghi thiết bị (iPhone/iPad, Android hoặc Mac), hệ điều hành và phiên bản ứng dụng.</li>
+          <li>Mô tả các bước gặp lỗi và kết quả bạn mong muốn.</li>
+          <li>Nếu gửi ảnh chụp màn hình, hãy che thông tin cá nhân không cần thiết.</li>
         </ol>
         <div class="actions">
-          <button class="button ghost" type="button" data-copy-email data-copy-success="Đã sao chép email hỗ trợ" data-copy-fail="Không thể sao chép. Vui lòng copy thủ công">Sao chép email hỗ trợ</button>
-          <a class="button primary" href="mailto:ben.nguyenvn18@gmail.com?subject=[Bao%20gio%20den%20Tet]%20Bao%20loi&body=Xin%20chao%20team%20Bao%20gio%20den%20Tet,%0A%0AToi%20gap%20mot%20van%20de:%0A-%20Thiet%20bi:%0A-%20Phien%20ban%20ung%20dung:%0A-%20Mo%20ta%20chi%20tiet:%0A">Mẫu email báo lỗi</a>
+          <button class="button ghost" type="button" data-copy-email data-copy-success="Đã sao chép email hỗ trợ" data-copy-fail="Không thể sao chép. Vui lòng sao chép địa chỉ email ở phần liên hệ.">Sao chép email</button>
+          <a class="button primary" href="mailto:ben.nguyenvn18@gmail.com?subject=%5BBao%20gi%E1%BB%9D%20%C4%91%E1%BA%BFn%20T%E1%BA%BFt%5D%20B%C3%A1o%20l%E1%BB%97i&amp;body=Xin%20ch%C3%A0o%2C%0A%0AT%C3%B4i%20g%E1%BA%B7p%20v%E1%BA%A5n%20%C4%91%E1%BB%81%20sau%3A%0A-%20Thi%E1%BA%BFt%20b%E1%BB%8B%20v%C3%A0%20h%E1%BB%87%20%C4%91i%E1%BB%81u%20h%C3%A0nh%3A%0A-%20Phi%C3%AAn%20b%E1%BA%A3n%20%E1%BB%A9ng%20d%E1%BB%A5ng%3A%0A-%20C%C3%A1c%20b%C6%B0%E1%BB%9Bc%20g%E1%BA%B7p%20l%E1%BB%97i%3A%0A-%20K%E1%BA%BFt%20qu%E1%BA%A3%20mong%20mu%E1%BB%91n%3A%0A-%20K%E1%BA%BFt%20qu%E1%BA%A3%20th%E1%BB%B1c%20t%E1%BA%BF%3A%0A-%20M%C3%BAi%20gi%E1%BB%9D%20%28n%E1%BA%BFu%20li%C3%AAn%20quan%20%C4%91%E1%BA%BFn%20ng%C3%A0y%20ho%E1%BA%B7c%20l%E1%BB%9Di%20nh%E1%BA%AFc%29%3A%0A">Mẫu email báo lỗi</a>
         </div>
       </article>
     </section>
+    <section class="section card" aria-labelledby="faq">
+      <h2 id="faq">Câu hỏi thường gặp</h2>
+      <nav class="topic-nav" aria-label="Chủ đề trợ giúp"><a href="#settings">Cài đặt & đếm ngược</a><a href="#events">Sự kiện & lời nhắc</a><a href="#calendar">Âm lịch & chia sẻ</a><a href="#widgets">Widget & dữ liệu</a></nav>
+      <section class="faq-group" aria-labelledby="settings"><h3 id="settings">Cài đặt & đếm ngược</h3><div class="faq"><details><summary>Mở cài đặt ở đâu?</summary><p>Mở menu ở góc trên bên phải màn hình chính, rồi chọn <strong>Cài đặt</strong>. Menu này cũng có <strong>Thêm sự kiện</strong>, <strong>Âm lịch</strong> và <strong>Chia sẻ</strong>.</p></details>
+<details><summary>Cài đặt có tự lưu không?</summary><p>Có. Mỗi thay đổi trong <strong>Cài đặt</strong> được áp dụng và lưu ngay. Bạn có thể quay lại màn hình chính mà không cần bấm Done. Khi tạo hoặc sửa sự kiện, hãy bấm <strong>Lưu sự kiện</strong> (hoặc <strong>Lưu</strong> với ngày lễ có sẵn).</p></details>
+<details><summary>Đổi hình nền hoặc dùng ảnh của tôi thế nào?</summary><p>Vào <strong>Cài đặt → Hình nền</strong> để chọn một trong sáu ảnh Tết có sẵn hoặc chọn <strong>Ảnh của bạn</strong>. Ảnh bạn chọn được sao chép vào bộ nhớ của ứng dụng để làm nền; ứng dụng không tải ảnh lên máy chủ.</p></details>
+<details><summary>Tôi có thể đổi cách đếm và cỡ chữ không?</summary><p>Trong <strong>Cài đặt → Cách đếm</strong>, chọn <strong>Theo ngày</strong>, <strong>Theo tuần</strong> hoặc <strong>Theo tháng</strong>. Cách đếm theo tháng quy ước 30 ngày là một tháng, không phải số tháng theo lịch. <strong>Cỡ chữ</strong> có ba mức <strong>Nhỏ</strong>, <strong>Vừa</strong>, <strong>Lớn</strong>.</p></details>
+<details><summary>Bật giờ, phút và giây ở đâu?</summary><p>Bật <strong>Hiện giờ và phút</strong> trong <strong>Cài đặt</strong>; khi đó tùy chọn <strong>Hiện giây</strong> sẽ xuất hiện. Khi còn dưới một ngày, ứng dụng tự chuyển sang giờ/phút; dưới một phút, màn hình tập trung vào số giây còn lại và tạm ẩn menu.</p></details>
+<details><summary>Vì sao không còn Hiệu ứng chữ, Vị trí chữ và nút Revert?</summary><p>Giao diện mới đã thay các tùy chỉnh này bằng bố cục chữ cố định và ba mức cỡ chữ. Cài đặt được lưu ngay nên không còn nút Revert hoặc bước lưu theo từng tab.</p></details>
+<details><summary>Đến giao thừa, ứng dụng hiển thị gì?</summary><p>Khi ứng dụng đang mở ở thời điểm chuyển năm, màn đếm ngược kết thúc bằng pháo hoa. Bạn có thể chạm để bỏ qua. Trong ba ngày Tết, màn hình hiển thị <strong>Mùng 1</strong>, <strong>Mùng 2</strong> hoặc <strong>Mùng 3</strong> và có nút <strong>Xem pháo hoa</strong>. Sau đó ứng dụng tiếp tục đếm đến Tết kế tiếp.</p></details>
+<details><summary>Đổi ngôn ngữ ứng dụng ở đâu?</summary><p>Vào <strong>Cài đặt → Ngôn ngữ</strong> để chọn <strong>Tiếng Việt</strong> hoặc <strong>English</strong>. Lựa chọn này cũng được gửi sang widget trên thiết bị. Nút chuyển ngôn ngữ trên website chỉ đổi ngôn ngữ trang hỗ trợ.</p></details></div></section>
+<section class="faq-group" aria-labelledby="events"><h3 id="events">Sự kiện & lời nhắc</h3><div class="faq"><details><summary>Thêm ngày giỗ, sinh nhật hoặc kỷ niệm thế nào?</summary><p>Mở menu → <strong>Thêm sự kiện</strong>. Nhập tên, chọn <strong>Âm lịch</strong> hoặc <strong>Dương lịch</strong> và ngày mong muốn. Bạn có thể bật <strong>Lặp hằng năm</strong>, <strong>Hiện trên màn chính</strong> và <strong>Nhắc tôi</strong>, rồi bấm <strong>Lưu sự kiện</strong>.</p></details>
+<details><summary>Quản lý ngày lễ và sự kiện cá nhân ở đâu?</summary><p>Vào <strong>Cài đặt → Danh sách sự kiện</strong>. Nhóm <strong>Chung</strong> chứa các ngày lễ có sẵn, nhóm <strong>Cá nhân</strong> chứa sự kiện bạn tạo. Bạn có thể bật/tắt các mốc, sửa hoặc xóa sự kiện cá nhân. Tên và ngày của ngày lễ có sẵn là cố định. Các mốc ngày lễ không phải lịch nghỉ bù hay lịch nghỉ chính thức hằng năm.</p></details>
+<details><summary>Đổi kiểu hiển thị các sự kiện trên màn chính thế nào?</summary><p>Vào <strong>Cài đặt → Kiểu sự kiện</strong> để chọn <strong>Thẻ kính</strong>, <strong>Viên kính</strong> hoặc <strong>Thẻ vuốt</strong>. Cuộn hoặc vuốt dải sự kiện để xem các mốc khác; chạm vào một mốc để mở chi tiết.</p></details>
+<details><summary>Đặt lời nhắc cho sự kiện thế nào?</summary><p>Mở sự kiện, bật <strong>Nhắc tôi</strong> và cho phép thông báo khi được hỏi. Chọn nhắc đúng ngày hoặc trước một số ngày, chọn giờ rồi lưu sự kiện. Hãy bật <strong>Hiện trên màn chính</strong>: mốc bị tắt sẽ không được lên lịch nhắc.</p></details>
+<details><summary>Vì sao tôi không nhận được lời nhắc?</summary><p>Kiểm tra sự kiện đã lưu, đang bật và có giờ nhắc ở tương lai. Kiểm tra quyền thông báo trong cài đặt hệ thống. Trên Android, xem thêm giới hạn pin của ứng dụng qua hướng dẫn hiện trong màn sửa sự kiện. Mở lại ứng dụng sau khi thay đổi quyền hoặc múi giờ để cập nhật lịch nhắc. Thời điểm thông báo có thể bị ảnh hưởng bởi hệ điều hành.</p></details>
+<details><summary>Ngày âm lặp hằng năm có giữ nguyên ngày dương không?</summary><p>Không. Ứng dụng tính lại ngày dương tương ứng cho từng năm. Với sự kiện cá nhân vào ngày 30 âm lịch, năm có tháng đó chỉ dài 29 ngày sẽ được bỏ qua để tìm lần có ngày hợp lệ tiếp theo; ứng dụng không tự đổi sự kiện của bạn sang ngày 29.</p></details></div></section>
+<section class="faq-group" aria-labelledby="calendar"><h3 id="calendar">Âm lịch & chia sẻ</h3><div class="faq"><details><summary>Xem và đổi ngày âm/dương ở đâu?</summary><p>Mở menu → <strong>Âm lịch</strong>. Chuyển tháng, chọn một ngày để xem thông tin âm/dương, can chi và giờ tốt theo lịch truyền thống. Dùng <strong>Chọn ngày</strong> để tra ngày âm hoặc dương; bấm <strong>Hôm nay</strong> để quay về ngày hiện tại.</p></details>
+<details><summary>Chia sẻ ảnh đếm ngược như thế nào?</summary><p>Mở menu → <strong>Chia sẻ</strong>, xem trước ảnh rồi bấm <strong>Chia sẻ</strong> để chọn ứng dụng nhận. Ảnh giữ nền và nội dung đếm ngược Tết, không kèm dải sự kiện cá nhân. Nếu dùng ảnh nền riêng, ảnh đó sẽ xuất hiện trong ảnh chia sẻ.</p></details>
+<details><summary>Tôi tìm mục “Tết là gì?” ở đâu?</summary><p>Vào <strong>Cài đặt → Về ứng dụng</strong> để đọc bảy chương về Tết. Ứng dụng lưu tiến độ đọc trên thiết bị để bạn đọc tiếp hoặc đọc lại từ đầu.</p></details></div></section>
+<section class="faq-group" aria-labelledby="widgets"><h3 id="widgets">Widget & dữ liệu</h3><div class="faq"><details><summary>Thêm widget trên iPhone hoặc Android thế nào?</summary><p>Nhấn giữ vùng trống trên màn hình chính, mở danh sách widget và chọn <strong>Bao giờ đến Tết</strong>. Trên iPhone, chọn kích thước rồi thêm; trên Android, kéo widget vào vị trí mong muốn. Xem hướng dẫn của <a href="https://support.apple.com/en-euro/guide/iphone/iphb8f1bf206/ios">Apple</a> hoặc <a href="https://support.google.com/android/answer/9450271?hl=en-en">Google</a> nếu menu trên máy khác với mô tả.</p></details>
+<details><summary>Widget hỗ trợ những kiểu nào?</summary><p>Trên iOS, ứng dụng có widget màn hình chính cỡ nhỏ/vừa và widget màn hình khóa dạng tròn/chữ nhật. Android có widget màn hình chính. Widget đồng bộ ngôn ngữ và nền từ ứng dụng; nền được làm mờ để dễ đọc, còn widget màn hình khóa dùng cách hiển thị của hệ thống. Bản macOS chưa có widget riêng.</p></details>
+<details><summary>Widget cũ bị trống sau khi cập nhật thì làm gì?</summary><p>Hãy mở ứng dụng một lần, xóa widget cũ rồi thêm lại widget hiện có trong danh sách. Bộ widget đã thay đổi ở giao diện mới. Nếu nền hoặc ngôn ngữ chưa đổi ngay, chờ hệ thống làm mới widget; widget không chạy liên tục như màn hình ứng dụng.</p></details>
+<details><summary>Ứng dụng có cần mạng hoặc tài khoản không?</summary><p>Không cần tài khoản. Đếm ngược, sự kiện, lịch âm và nội dung tìm hiểu Tết hoạt động bằng dữ liệu trên thiết bị. Gửi email hỗ trợ hoặc gửi ảnh qua ứng dụng khác có thể cần Internet.</p></details>
+<details><summary>Dữ liệu có đồng bộ sang thiết bị khác không?</summary><p>Ứng dụng chưa có đồng bộ tài khoản hoặc sao lưu đám mây riêng. Sự kiện, lời nhắc, tùy chỉnh, ảnh nền và tiến độ đọc được lưu trên thiết bị. Xóa dữ liệu ứng dụng hoặc gỡ cài đặt có thể làm mất dữ liệu; việc khôi phục phụ thuộc vào bản sao lưu của hệ điều hành nếu có. Xem <a href="privacy.html?lang=vi">Chính sách quyền riêng tư</a>.</p></details></div></section>
 
-    <section class="section card" id="faq" aria-label="Câu hỏi thường gặp">
-      <h2>Câu hỏi thường gặp</h2>
-      <div class="faq">
-        <details>
-          <summary>Mở cài đặt countdown ở đâu?</summary>
-          <p>Chạm vào màn hình để hiện nút bánh răng, rồi bấm nút đó để vào trang cài đặt.</p>
-        </details>
-        <details>
-          <summary>Vì sao nút bánh răng biến mất?</summary>
-          <p>Nút sẽ tự ẩn sau khoảng 3 giây. Bạn chỉ cần chạm lại màn hình để hiện lại.</p>
-        </details>
-        <details>
-          <summary>Tôi đổi hình nền thế nào?</summary>
-          <ul class="faq-list">
-            <li>Vào tab <strong>Hình nền</strong>.</li>
-            <li>Vuốt trái/phải hoặc bấm mũi tên trái/phải để đổi mẫu.</li>
-          </ul>
-        </details>
-        <details>
-          <summary>Tôi đổi kiểu hiển thị đếm ngược ở đâu?</summary>
-          <p>Vào tab <strong>Cách đếm</strong> để chọn:</p>
-          <ul class="faq-list">
-            <li>Theo ngày</li>
-            <li>Theo tuần + ngày</li>
-            <li>Theo tháng + ngày</li>
-          </ul>
-        </details>
-        <details>
-          <summary>Vì sao số “tháng” có thể không đúng cảm nhận lịch?</summary>
-          <p>Vì trong code, tháng đang được quy đổi theo 30 ngày/tháng để hiển thị nhanh.</p>
-        </details>
-        <details>
-          <summary>Tôi đổi hiệu ứng chữ như thế nào?</summary>
-          <p>Vào tab <strong>Hiệu ứng chữ</strong> và vuốt hoặc bấm mũi tên để chọn style.</p>
-        </details>
-        <details>
-          <summary>Tôi chỉnh cỡ chữ ở đâu?</summary>
-          <p>Vào tab <strong>Cỡ chữ</strong> rồi kéo slider. Phạm vi hiện tại là từ 0.5 đến 2.0.</p>
-        </details>
-        <details>
-          <summary>Tôi chỉnh vị trí dòng countdown ở đâu?</summary>
-          <p>Vào tab <strong>Vị trí chữ</strong> rồi kéo slider. Bạn có thể đẩy chữ lên hoặc xuống theo nhu cầu.</p>
-        </details>
-        <details>
-          <summary>Bật/tắt hiển thị giờ & phút thế nào?</summary>
-          <p>Vào tab <strong>Giờ & phút</strong> để đổi giữa bật và tắt.</p>
-        </details>
-        <details>
-          <summary>Vì sao dấu : giữa giờ và phút nhấp nháy?</summary>
-          <p>Đây là hiệu ứng có chủ đích theo nhịp giây.</p>
-        </details>
-        <details>
-          <summary>Tôi đổi ngôn ngữ app ở đâu?</summary>
-          <p>Vào tab <strong>Ngôn ngữ</strong> để chọn Tiếng Việt hoặc English.</p>
-        </details>
-        <details>
-          <summary>Cài đặt có tự lưu không?</summary>
-          <p>Có, theo cơ chế mới:</p>
-          <ul class="faq-list">
-            <li>Khi bạn chuyển tab: tab trước sẽ được lưu (nếu có thay đổi).</li>
-            <li>Nút <strong>Revert</strong>: trả tab hiện tại về trạng thái đã lưu.</li>
-            <li>Nút <strong>Done</strong>: lưu tab hiện tại và thoát.</li>
-            <li>Bấm Back hệ thống: bỏ thay đổi chưa lưu của tab đang mở và thoát.</li>
-          </ul>
-        </details>
-        <details>
-          <summary>Khi nào app hiện “Chúc mừng năm mới!”?</summary>
-          <p>Khi số ngày còn lại &lt;= 0. Nếu đang bật giờ/phút thì sẽ hiện 00h : 00p (hoặc 00h : 00m ở English).</p>
-        </details>
-        <details>
-          <summary>App có cần Internet để chạy countdown không?</summary>
-          <p>Không bắt buộc cho logic đếm ngược chính; app tính bằng dữ liệu ngày Tết nội bộ và thời gian máy.</p>
-        </details>
-        <details>
-          <summary>Thêm widget trên iOS thế nào?</summary>
-          <p>iOS: vào Home Screen, nhấn giữ nền đến khi icon rung, chọn Edit → Add Widget → chọn widget → Add Widget → Done.</p>
-        </details>
-        <details>
-          <summary>Thêm widget trên Android thế nào?</summary>
-          <p>Android: nhấn giữ vùng trống Home Screen → Widgets → chọn app → nhấn giữ widget và kéo ra màn hình.</p>
-        </details>
-        <details>
-          <summary>Đổi kích thước/xóa widget thế nào?</summary>
-          <ul class="faq-list">
-            <li>Android: nhấn giữ widget để resize hoặc kéo lên vùng Remove để xóa.</li>
-            <li>iOS: nhấn giữ widget để chỉnh/sắp xếp; xóa widget trong menu ngữ cảnh.</li>
-          </ul>
-        </details>
-        <details>
-          <summary>Vì sao widget không cập nhật realtime từng giây?</summary>
-          <p>Widget luôn bị giới hạn bởi chính sách hệ điều hành:</p>
-          <ul class="faq-list">
-            <li>Android: cơ chế <strong>updatePeriodMillis</strong> không hỗ trợ dưới 30 phút (nếu dùng periodic update).</li>
-            <li>iOS: <strong>WidgetKit</strong> dùng timeline/scheduling, extension không chạy liên tục như màn hình app.</li>
-          </ul>
-        </details>
-        <details>
-          <summary>Mở App Settings của hệ điều hành ở đâu?</summary>
-          <ul class="faq-list">
-            <li>iOS: Settings → Apps → chọn app.</li>
-            <li>Android: Settings → Apps → chọn app → Permissions.</li>
-          </ul>
-        </details>
-      </div>
     </section>
-
-    <section class="section card" aria-label="Thông tin pháp lý">
-      <h2>Chính sách & pháp lý</h2>
-      <p class="legal-note">
-        Bạn có thể chuyển ngôn ngữ trực tiếp trong từng trang chính sách.
-      </p>
+    <section class="section card" aria-labelledby="legal-title">
+      <h2 id="legal-title">Chính sách & điều khoản</h2>
+      <p class="legal-note">Tìm hiểu cách ứng dụng lưu sự kiện, sử dụng ảnh bạn chọn và xử lý lời nhắc.</p>
       <div class="legal-links">
-        <a class="button ghost" href="privacy.html?lang=vi">Privacy Policy</a>
-        <a class="button ghost" href="terms.html?lang=vi">Terms of Use</a>
+        <a class="button ghost" href="privacy.html?lang=vi">Chính sách quyền riêng tư</a>
+        <a class="button ghost" href="terms.html?lang=vi">Điều khoản sử dụng</a>
       </div>
     </section>
-
-    <footer>
-      © <span id="current-year"></span> Bao giờ đến Tết. All rights reserved.
-    </footer>
+    <footer>© <span id="current-year">2026</span> Bao giờ đến Tết. Bảo lưu mọi quyền.</footer>
   </main>
-
   <p class="toast" id="toast" role="status" aria-live="polite"></p>
   <script src="index.js"></script>
 </body>
